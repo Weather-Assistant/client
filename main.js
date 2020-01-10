@@ -1,8 +1,8 @@
 $( document ).ready( function () {
-    $('#searchButton').on('click', function (e) {
-        e.preventDefault()
-        getPixabay()
-    })
+  $('#searchButton').on('click', function (e) {
+      e.preventDefault()
+      getPixabay()
+  })
 })
 
 function getPixabay () {

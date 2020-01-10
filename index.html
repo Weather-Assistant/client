@@ -40,6 +40,18 @@
             </div>
         </div>
     </div>
+    <form>
+      <select id='country-list' name="country" onchange="getState(this.value)">
+        <option>Select Country</option>
+      </select>
+      <select id='state-list' name="state" onchange="getCity(this.value)">
+        <option>Select State</option>
+      </select>
+      <select id='city-list' name="city">
+        <option>Select City</option>
+      </select>
+      <input id='submit-city' type="submit" value="GO!">
+    </form>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -47,5 +59,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="./main.js"></script>
     <script src="calenderific.js"></script>
+    <script src="airVisual.js"></script>
 </body>
 </html>
