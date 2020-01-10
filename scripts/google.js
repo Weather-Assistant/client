@@ -3,6 +3,7 @@
  */
 
 const googleUser = {};
+let auth2;
 
 const startApp = function() {
   gapi.load('auth2', function() {
@@ -33,7 +34,7 @@ function attachSignIn(element) {
           console.log(`SUCCESS SIGN IN!`);
           
           // show hacktivGitPage
-          $('.calendarific').toggle();
+          $('.home').toggle();
 
           // hide signInPage
           $('.signInPage').toggle();
@@ -49,13 +50,14 @@ function attachSignIn(element) {
 }
 
 function signOut() {
-  var auth2 = gapi.auth2.getAuthInstance();
+  // var auth2 = gapi.auth2.getAuthInstance();
+  console.log(auth2)
+  $('.signInPage').show()
+  $('.home').hide()
   localStorage.removeItem('token');
   localStorage.clear()
-  auth2.signOut().then(function () {
-    console.log('User signed out.');
-    // hide hacktivGitPage
-    $('.signInPage').show()
-    $('.home').hide()
-  });
+  // auth2.signOut().then(function () {
+  //   // console.log('User signed out.');
+  //   // hide hacktivGitPage
+  // });
 }

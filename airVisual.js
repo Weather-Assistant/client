@@ -1,9 +1,8 @@
 $( document ).ready( function () {
-  
+  getCountries()
   $('#submit-city').on('click', function( event ) {
     event.preventDefault();
     getWeather()
-    getPixabay()
   })
 })
 
@@ -28,6 +27,7 @@ function getCountries(){
 }
 
 function insertCountries(array){
+  $('#country-list').empty()
   let countryList = ''
   array.forEach((el) => {
     countryList += `<option value="${el.country}">${el.country}</option>`
@@ -103,6 +103,7 @@ function getWeather(){
     url: `http://localhost:3000/airvisual/${country}/${state}/${city}`
   })
     .done((data) => {
+      getPixabay()
       showWeather(data)
     })
     .fail((err) => {

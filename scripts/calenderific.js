@@ -1,12 +1,8 @@
 const localhost = 'http://localhost:3000'
 $(document).ready(function () {
     $.ajax({
-        type: "post",
+        type: "get",
         url: localhost + '/calendarific/calender/',
-        data: {
-            country: 'id',
-            year: String(new Date().getFullYear())
-        },
         success: function (calender) {
             console.log(calender);
             $('.calendarific').append(getCalender(calender.response.holidays));
@@ -16,6 +12,7 @@ $(document).ready(function () {
 
     function getCalender(calenders) {
         let now = String(new Date().toISOString().slice(0, -14))
+        // let now = String(new Date('2020-01-01').toISOString().slice(0, -14))
 
         function checkDay(now) {
             let day = new Date(now).toString().slice(0, 3)

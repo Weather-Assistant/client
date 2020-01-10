@@ -30,18 +30,18 @@
     <title>Weather App</title>
 </head>
 <body>
-    <div class="signInPage">
+    <div class="signInPage h-screen">
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark">    
           <!-- Navbar text-->
           <span class="navbar-text mx-auto form-inline">
-            HacktivGit
+            Weather Assistant
           </span>
         </nav> 
       
-        <div class="container">
+        <div class="container align-middle">
           <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-              <div class="card card-signin my-5">
+              <div class="card card-signin">
                 <div class="card-body">
                   <h5 class="card-title text-center">Sign In</h5>
                   <div class="form-signin">
@@ -54,33 +54,11 @@
         </div>
     </div>
 
-    <!-- content -->
-    <!-- <div class="container">
-        <div class="row d-flex">
-            <div class="col-md-12 mt-3 text-center">
-                <h1>Weather</h1>
-            </div>
-            <div class="col-md-12 mt-3 text-center">
-                
-            </div>
-        </div>
-        <div class="row d-flex">
-            <div id="air-visual" class="col-md-2 mt-3 text-center">
-                
-            </div>
-            <div class="col-md-4 mt-3 text-center">
-                <div class="calendarific" style="font-family: 'Kanit', sans-serif"> -->
-
     <div class="home">
         <!-- navbar -->
         <nav class="navbar navbar-light bg-light justify-content-between">
             <div class="container">
                 <a class="navbar-brand">Weather Assistant</a>
-        
-                <form class="form-inline">
-                    <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
                 <button class="btn btn-outline-success my-2 my-sm-0" onclick="signOut();" id="logOut" type="submit">
                     Sign Out
                 </button>
@@ -91,10 +69,11 @@
         <div class="container">
             <div class="row d-flex">
                 <div class="col-md-12 mt-3 text-center">
-                    <h1>Weather</h1>
+                    <img class="mx-auto" src="https://cdn.dribbble.com/users/372537/screenshots/2065624/icons_km_weather.gif" style="width: 15rem;height:10rem;" alt="">
+                    <h1>Weather Assistant</h1>
                 </div>
             </div>
-            <div class="row">
+            <div class="row d-flex">
                     <select id='country-list' class="form-control col-md-3" name="country" onchange="getState(this.value)">
                         <option>Country</option>
                     </select>
@@ -105,12 +84,17 @@
                         <option>City</option>
                     </select>
                     <input id='submit-city' type="submit" class='btn btn-primary' value="GO!">
-                </div>
+            </div>
             <div class="row d-flex">
-                <div class="col-md-6 mt-3 text-center">
+                <div class="col-md-6 mt-5 text-center">
                     <div class="calendarific" style="font-family: 'Kanit', sans-serif"></div>
                 </div>
-                <div id="pixabay" class="col-md-6 mt-3 text-center">
+                <div class="col-md-4 mt-5 text-center" id="air-visual">
+
+                </div>
+            </div>
+            <div class="row d-flex">
+                <div id="pixabay" class="col-md-12 mt-5 mb-5 text-center">
                     
                 </div>
             </div>

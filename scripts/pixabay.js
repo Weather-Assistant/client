@@ -1,9 +1,10 @@
 function getPixabay () {
+    let city = $('#state-list').val()
     $.ajax({
         method:'post',
         url:'http://localhost:3000/pixabay',
         data:{
-            keyword:$('#search').val()
+            keyword:city
         }
     })
     .done( result => {
@@ -16,13 +17,12 @@ function getPixabay () {
         $('#pixabay').append(`
             <img src="${result.picUrl}" style="max-width:100%;"></img>
         `)
-        $('#search').val('')
     } )
     .fail( (xhr, textStatus, errorThrown) => {
         var err = eval("(" + xhr.responseText + ")");
         Swal.fire({
             icon:'error',
-            title:err.Message,
+            title:'error sini',
             showConfirmButton: false,
             timer: 1500
         })
