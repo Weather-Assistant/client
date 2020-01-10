@@ -1,5 +1,5 @@
 $( document ).ready( function () {
-  getCountries()
+  
   $('#submit-city').on('click', function( event ) {
     event.preventDefault();
     getWeather()
