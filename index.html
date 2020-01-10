@@ -36,9 +36,6 @@
           <span class="navbar-text mx-auto form-inline">
             HacktivGit
           </span>
-          <button class="btn btn-outline-success my-2 my-sm-0" onclick="signOut();" id="logOut" type="submit">
-            Sign Out
-          </button>
         </nav> 
       
         <div class="container">
@@ -67,9 +64,12 @@
                     <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
+                <button class="btn btn-outline-success my-2 my-sm-0" onclick="signOut();" id="logOut" type="submit">
+                    Sign Out
+                </button>
             </div>
         </nav>
-    
+        
         <!-- content -->
         <div class="container">
             <div class="row d-flex">
@@ -89,33 +89,17 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-    <form>
-      <select id='country-list' name="country" onchange="getState(this.value)">
-        <option>Select Country</option>
-      </select>
-      <select id='state-list' name="state" onchange="getCity(this.value)">
-        <option>Select State</option>
-      </select>
-      <select id='city-list' name="city">
-        <option>Select City</option>
-      </select>
-      <input id='submit-city' type="submit" value="GO!">
-    </form>
 
-=======
-    
     <!-- <script src="./scripts/main.js"></script> -->
->>>>>>> login
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="./main.js"></script>
-    <script src="calenderific.js"></script>
-<<<<<<< HEAD
+    <script src="./scripts/pixabay.js"></script>
+    <script src="./scripts/calenderific.js"></script>
     <script src="airVisual.js"></script>
-=======
+
     <script>
         $(document).ready(() => {
             // setup
@@ -138,6 +122,5 @@
             }
         });
     </script>
->>>>>>> login
-</body>
+    </body>
 </html>
