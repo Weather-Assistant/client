@@ -1,4 +1,4 @@
-const localhost = 'http://localhost:3003'
+const localhost = 'http://localhost:3000'
 $(document).ready(function () {
     $.ajax({
         type: "post",

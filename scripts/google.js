@@ -39,6 +39,7 @@ function attachSignIn(element) {
           $('.signInPage').toggle();
           $('.signInPage').hide()
           $('.home').show()
+          getCountries()
         }
       })
     }, function (error) {
