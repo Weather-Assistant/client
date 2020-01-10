@@ -1,4 +1,4 @@
-const localhost = 'http://localhost:3000'
+const localhost = 'http://localhost:3003'
 $(document).ready(function () {
     $.ajax({
         type: "post",
@@ -10,7 +10,8 @@ $(document).ready(function () {
         success: function (calender) {
             console.log(calender);
             $('.calendarific').append(getCalender(calender.response.holidays));
-        }
+        },
+        fail: (err) => console.log(err)
     });
 
     function getCalender(calenders) {

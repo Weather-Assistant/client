@@ -4,42 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <!-- tailwind -->
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- font google -->
     <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- google oauth -->
+    <script src="https://apis.google.com/js/api:client.js"></script>
+
+    <!-- trigger google oauth -->
+    <script src="./scripts/google.js"></script>
+
+    <!-- style untuk login -->
+    <link rel="stylesheet" href="./css/login.css">
+
+    <title>Weather App</title>
 </head>
 <body>
-    <!-- navbar -->
-    <nav class="navbar navbar-light bg-light justify-content-between">
+    <div class="signInPage">
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">    
+          <!-- Navbar text-->
+          <span class="navbar-text mx-auto form-inline">
+            HacktivGit
+          </span>
+          <button class="btn btn-outline-success my-2 my-sm-0" onclick="signOut();" id="logOut" type="submit">
+            Sign Out
+          </button>
+        </nav> 
+      
         <div class="container">
-            <a class="navbar-brand">Weather Assistant</a>
-    
-            <form class="form-inline">
-                <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </nav>
-
-    <!-- content -->
-    <div class="container">
-        <div class="row d-flex">
-            <div class="col-md-12 mt-3 text-center">
-                <h1>Weather</h1>
+          <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+              <div class="card card-signin my-5">
+                <div class="card-body">
+                  <h5 class="card-title text-center">Sign In</h5>
+                  <div class="form-signin">
+                    <button class="btn btn-lg btn-google btn-block text-uppercase g-signin2" data-onsuccess="onSignIn" type="submit" id="googleSignIn"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-        <div class="row d-flex">
-            <div class="col-md-6 mt-3 text-center">
-                <div class="calendarific" style="font-family: 'Kanit', sans-serif">
+    </div>
 
+    <div class="home">
+        <!-- navbar -->
+        <nav class="navbar navbar-light bg-light justify-content-between">
+            <div class="container">
+                <a class="navbar-brand">Weather Assistant</a>
+        
+                <form class="form-inline">
+                    <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    
+        <!-- content -->
+        <div class="container">
+            <div class="row d-flex">
+                <div class="col-md-12 mt-3 text-center">
+                    <h1>Weather</h1>
                 </div>
             </div>
-            <div id="pixabay" class="col-md-6 mt-3 text-center">
-                
+            <div class="row d-flex">
+                <div class="col-md-6 mt-3 text-center">
+                    <div class="calendarific" style="font-family: 'Kanit', sans-serif">
+    
+                    </div>
+                </div>
+                <div id="pixabay" class="col-md-6 mt-3 text-center">
+                    
+                </div>
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <form>
       <select id='country-list' name="country" onchange="getState(this.value)">
         <option>Select Country</option>
@@ -53,12 +103,41 @@
       <input id='submit-city' type="submit" value="GO!">
     </form>
 
+=======
+    
+    <!-- <script src="./scripts/main.js"></script> -->
+>>>>>>> login
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="./main.js"></script>
     <script src="calenderific.js"></script>
+<<<<<<< HEAD
     <script src="airVisual.js"></script>
+=======
+    <script>
+        $(document).ready(() => {
+            // setup
+            const HOST = `http://localhost:3000`;
+            let currUser = null;
+            let currToken = null;
+
+            // hide hacktivGitPage
+            $('.calendarific').toggle();
+            // ambil token yg ada di local storage
+            currToken = localStorage.getItem('token');
+            if (!currToken) {
+                startApp();
+                $('.signInPage').show()
+                $('.home').hide()
+            } else { 
+                // show hacktivGitPage
+                $('.signInPage').hide()
+                $('.home').show()
+            }
+        });
+    </script>
+>>>>>>> login
 </body>
 </html>
