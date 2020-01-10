@@ -29,6 +29,8 @@ $(document).ready(function () {
                 day = 'Wednesday'
             } else if (day == 'Thu') {
                 day = 'Thursday'
+            } else if (day == 'Fri') {
+                day = 'Friday'
             } else if (day == 'Sat') {
                 day = 'Saturday'
             }
