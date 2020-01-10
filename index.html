@@ -53,6 +53,42 @@
           </div>
         </div>
     </div>
+            <a class="navbar-brand">Weather Assistant</a>
+    
+           <!--  <form class="form-inline">
+                <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form> -->
+        </div>
+    </nav>
+
+    <!-- content -->
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-12 mt-3 text-center">
+                <h1>Weather</h1>
+            </div>
+            <div class="col-md-12 mt-3 text-center">
+                <div class="row">
+                    <select id='country-list' class="form-control col-md-3" name="country" onchange="getState(this.value)">
+                        <option>Select Country</option>
+                    </select>
+                    <select id='state-list' class="form-control col-md-3 mx-2" name="state" onchange="getCity(this.value)">
+                        <option>Select State</option>
+                    </select>
+                    <select id='city-list' class="form-control col-md-3" name="city">
+                        <option>Select City</option>
+                    </select>
+                    <input id='submit-city' type="submit" class='btn btn-primary' value="GO!">
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex">
+            <div id="air-visual" class="col-md-2 mt-3 text-center">
+                
+            </div>
+            <div class="col-md-4 mt-3 text-center">
+                <div class="calendarific" style="font-family: 'Kanit', sans-serif">
 
     <div class="home">
         <!-- navbar -->
@@ -123,4 +159,6 @@
         });
     </script>
     </body>
+    <link rel="stylesheet" href="style.css">
+</body>
 </html>

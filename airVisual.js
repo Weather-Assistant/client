@@ -3,6 +3,7 @@ $( document ).ready( function () {
   $('#submit-city').on('click', function( event ) {
     event.preventDefault();
     getWeather()
+    getPixabay()
   })
 })
 
@@ -16,13 +17,17 @@ function getCountries(){
       insertCountries(data)
     })
     .fail((err) => {
-      console.log(err)
+      Swal.fire({
+            icon:'error',
+            title:'Cannot get countries',
+            showConfirmButton: false,
+            timer: 1500
+        })
     })
 
 }
 
 function insertCountries(array){
-  $('#country-list').append(`<option>Select Country</option>`)
   let countryList = ''
   array.forEach((el) => {
     countryList += `<option value="${el.country}">${el.country}</option>`
@@ -40,7 +45,12 @@ function getState(country){
       insertCity()
     })
     .fail((err) => {
-      console.log(err)
+      Swal.fire({
+            icon:'error',
+            title:'Cannot get states',
+            showConfirmButton: false,
+            timer: 1500
+        })
     })
 }
 
@@ -64,7 +74,12 @@ function getCity(state){
       insertCity(data)
     })
     .fail((err) => {
-      console.log(err)
+      Swal.fire({
+            icon:'error',
+            title:'Cannot get cities',
+            showConfirmButton: false,
+            timer: 1500
+        })
     })
 }
 
@@ -87,10 +102,23 @@ function getWeather(){
     method: 'get',
     url: `http://localhost:3000/airvisual/${country}/${state}/${city}`
   })
-    .done(({data}) => {
-      console.log(data.current.weather)
+    .done((data) => {
+      showWeather(data)
     })
     .fail((err) => {
-      console.log(err)
+      Swal.fire({
+            icon:'error',
+            title:'Cannot get weather',
+            showConfirmButton: false,
+            timer: 1500
+        })
     }) 
+}
+
+function showWeather(data){ 
+  $('#air-visual').empty()
+  $('#air-visual').append(`
+    <img src="https://www.airvisual.com/images/${data.weather}.png" class="mx-auto" style="max-width:100%;"></img>
+    <div>${data.description}</div>
+  `)
 }
