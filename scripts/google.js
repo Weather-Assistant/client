@@ -20,13 +20,15 @@ function attachSignIn(element) {
   auth2.attachClickHandler(element, {}, 
     function(googleUser) {
       const id_token = googleUser.getAuthResponse().id_token;
-      const url = `http://localhost:3003/sign-in`
+      const url = `http://localhost:3000/sign-in`
       
       $.ajax({
         url,
         method: 'POST',
         data: { id_token },
         success: (data) => {
+          console.log(data)
+          console.log('masuk')
           localStorage.setItem('token', data);
           console.log(`SUCCESS SIGN IN!`);
           
@@ -35,6 +37,8 @@ function attachSignIn(element) {
 
           // hide signInPage
           $('.signInPage').toggle();
+          $('.signInPage').hide()
+          $('.home').show()
         }
       })
     }, function (error) {
@@ -46,12 +50,11 @@ function attachSignIn(element) {
 function signOut() {
   var auth2 = gapi.auth2.getAuthInstance();
   localStorage.removeItem('token');
+  localStorage.clear()
   auth2.signOut().then(function () {
     console.log('User signed out.');
     // hide hacktivGitPage
-    $('.hacktivGitPage').toggle();
-
-    // show signInPage
-    $('.signInPage').toggle();
+    $('.signInPage').show()
+    $('.home').hide()
   });
 }
